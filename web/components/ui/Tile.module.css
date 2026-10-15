@@ -1,0 +1,94 @@
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  background: var(--panel);
+  /* Slanted cut on the top-right corner. */
+  clip-path: polygon(0 0, calc(100% - var(--cut) * 1.6) 0, 100% calc(var(--cut) * 1.6), 100% 100%, 0 100%);
+  transition: transform var(--dur-fast) var(--ease-snap), background var(--dur-fast);
+  isolation: isolate;
+}
+
+.tile::before {
+  /* Thin top highlight line, part of every panel/tile. */
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red), transparent 70%);
+  z-index: 2;
+}
+
+.art {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.bar {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 16px 12px;
+  background: var(--panel-raised);
+  border-top: 3px solid var(--red);
+  transition: background var(--dur-fast);
+}
+
+.kicker {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--grey);
+  text-transform: uppercase;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.hero .label { font-size: clamp(40px, 5vw, 64px); }
+.hero { min-height: 420px; }
+.wide { min-height: 200px; }
+.tall { min-height: 420px; }
+
+.tile:hover,
+.tile:focus-visible,
+.force_hover {
+  transform: scale(1.03);
+  outline: none;
+  z-index: 3;
+}
+.tile:hover .bar,
+.tile:focus-visible .bar,
+.force_hover .bar {
+  background: var(--red);
+  border-top-color: var(--white);
+}
+.tile:hover .kicker,
+.tile:focus-visible .kicker,
+.force_hover .kicker { color: var(--white); }
+
+/* clip-path hides outlines, so focus is drawn inside as a hard white frame. */
+.tile:focus-visible::after,
+.force_hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 4px solid var(--white);
+  clip-path: inherit;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.locked { opacity: 0.55; }

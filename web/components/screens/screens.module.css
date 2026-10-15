@@ -1,0 +1,84 @@
+.body { padding-top: 22px; padding-bottom: 40px; }
+.grid2 { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.stack { display: flex; flex-direction: column; gap: 20px; }
+.note { margin: 10px 0 0; font-size: 12px; line-height: 1.5; color: var(--grey); }
+
+.verdict { display: flex; gap: 16px; align-items: center; }
+.verdict > div { display: flex; flex-direction: column; }
+.verdictNum { font-family: var(--font-display); font-weight: 800; font-size: 110px; line-height: 0.85; color: var(--gold); text-shadow: 5px 5px 0 #000; }
+.verdictText { font-family: var(--font-display); font-weight: 600; font-size: 18px; text-transform: uppercase; letter-spacing: 0.04em; max-width: 380px; }
+
+.bigRow { display: flex; flex-wrap: wrap; gap: 28px; }
+.bigRow > div { display: flex; flex-direction: column; }
+.bigLabel { font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; color: var(--grey); text-transform: uppercase; }
+.big { font-family: var(--font-display); font-weight: 800; font-size: 48px; line-height: 1; }
+.bigGold { font-family: var(--font-display); font-weight: 800; font-size: 48px; line-height: 1; color: var(--gold); }
+
+.eraToggle { display: inline-flex; gap: 4px; }
+.eraToggle button {
+  border: 0; cursor: pointer; padding: 4px 10px; background: var(--red-deep); color: var(--white);
+  font-family: var(--font-display); font-weight: 800; font-size: 13px; letter-spacing: 0.1em; transform: skewX(var(--skew));
+}
+.eraToggle button.on { background: var(--white); color: var(--black); }
+.eraToggle button:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+
+.spendRow { display: grid; grid-template-columns: 130px 1fr 90px; grid-template-rows: auto auto; column-gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--panel-line); align-items: center; }
+.spendTeam { font-family: var(--font-display); font-weight: 800; font-size: 18px; text-transform: uppercase; }
+.spendBar { height: 12px; background: #222226; transform: skewX(var(--skew)); }
+.spendBar span { display: block; height: 100%; }
+.spendVal { font-family: var(--font-display); font-weight: 800; font-size: 20px; text-align: right; }
+.spendSub { grid-column: 2 / -1; font-size: 12px; color: var(--grey); }
+
+/* simulate */
+.simTop { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 18px; }
+.seasonPicker { display: flex; align-items: center; gap: 12px; }
+.seasonLabel { font-family: var(--font-display); font-weight: 800; font-size: 54px; line-height: 1; min-width: 210px; text-align: center; }
+.kickoff {
+  position: fixed; inset: 0; z-index: 70; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background: var(--black);
+}
+.kickoffText { font-family: var(--font-display); font-weight: 800; font-size: clamp(60px, 12vw, 180px); line-height: 0.9; color: var(--white); }
+.kickoffSub { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: 0.3em; color: var(--red); }
+.counter { font-family: var(--font-display); font-weight: 800; font-size: 40px; color: var(--white); font-variant-numeric: tabular-nums; }
+.counterLabel { font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: 0.2em; color: var(--grey); }
+.gauges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-around; }
+.table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.table th { font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: 0.12em; color: var(--grey); text-align: right; padding: 6px 8px; border-bottom: 2px solid var(--panel-line); }
+.table th:first-child, .table td:first-child { text-align: left; }
+.table td { padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--panel-line); font-size: 14px; }
+.table tr.hl td { background: rgba(218, 41, 28, 0.18); font-weight: 700; }
+.teamCell { font-family: var(--font-display); font-weight: 700; font-size: 16px; text-transform: uppercase; }
+
+/* transfers */
+.filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+.select {
+  background: var(--panel-raised); color: var(--white); border: 2px solid var(--panel-line);
+  font-family: var(--font-display); font-weight: 700; font-size: 16px; text-transform: uppercase; padding: 6px 10px;
+}
+.select:focus-visible { outline: 3px solid var(--white); }
+.tRow { cursor: pointer; }
+.tRow:hover td, .tRow:focus-visible td { background: var(--panel-raised); }
+.tRow:focus-visible { outline: 3px solid var(--white); outline-offset: -3px; }
+.sortBtn { background: none; border: 0; color: inherit; font: inherit; letter-spacing: inherit; cursor: pointer; padding: 0; }
+.sortBtn:focus-visible { outline: 2px solid var(--white); }
+.modalBack { position: fixed; inset: 0; z-index: 75; background: rgba(0, 0, 0, 0.75); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.modalCard { width: min(560px, 100%); }
+
+/* methodology */
+.toggleRow { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--panel-line); }
+.toggleLabel { font-family: var(--font-display); font-weight: 700; font-size: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+.sourceRow { padding: 10px 0; border-bottom: 1px solid var(--panel-line); }
+.sourceName { font-family: var(--font-display); font-weight: 800; font-size: 18px; text-transform: uppercase; display: flex; gap: 10px; align-items: center; }
+.sourceName a { text-decoration: underline; text-underline-offset: 3px; }
+.prose { font-size: 14px; line-height: 1.6; }
+.prose h1 { font-size: 28px; margin: 0 0 10px; }
+.prose h2 { font-size: 20px; margin: 20px 0 8px; color: var(--red); }
+.prose li { margin: 4px 0; }
+.prose code { background: #222; padding: 1px 5px; font-size: 12px; }
+.prose table { border-collapse: collapse; }
+.prose td, .prose th { border-bottom: 1px solid var(--panel-line); padding: 4px 10px; text-align: left; }
+
+@media (max-width: 1000px) {
+  .grid2, .grid3 { grid-template-columns: 1fr; }
+}

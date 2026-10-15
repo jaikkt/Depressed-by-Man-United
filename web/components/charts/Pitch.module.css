@@ -1,0 +1,5 @@
+.pitch { width: 100%; height: auto; display: block; }
+.pos { font-family: var(--font-display); font-weight: 800; font-size: 11px; }
+.name { font-family: var(--font-display); font-weight: 700; font-size: 12px; fill: var(--white); letter-spacing: 0.04em; }
+.starts { font-family: var(--font-display); font-weight: 600; font-size: 10px; fill: var(--grey); letter-spacing: 0.08em; }
+.marker { transition: transform var(--dur) var(--ease-snap); }

@@ -1,0 +1,34 @@
+/* Design tokens. Everything visual derives from these, so the game look stays
+   consistent and can be re-themed in one place. */
+:root {
+  --red: #DA291C;
+  --red-deep: #8B0F0A;
+  --red-dark: #4A0805;
+  --black: #0B0B0C;
+  --panel: #17171A;
+  --panel-raised: #202024;
+  --panel-line: #2C2C31;
+  --gold: #FBE122;   /* rare: records and the single most important number */
+  --white: #F4F1EA;  /* warm white for text */
+  --grey: #8A8A90;
+  --grey-dark: #4B4B51;
+  --good: #F4F1EA;   /* we never use green: "good" for United is just white */
+  --skew: -12deg;
+  --ease-snap: cubic-bezier(0.2, 0.9, 0.2, 1);
+  --dur-fast: 150ms;
+  --dur: 220ms;
+
+  --shadow-hard: 6px 6px 0 0 #000;
+  --shadow-hard-red: 6px 6px 0 0 var(--red-deep);
+  --cut: 18px; /* size of slanted corner cuts on tiles/panels */
+
+  --font-display: var(--font-saira), "Arial Narrow", sans-serif;
+  --font-body: var(--font-barlow), "Helvetica Neue", sans-serif;
+
+  --gutter: clamp(16px, 3vw, 40px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur: 0ms; }
+}
+:root[data-reduced-motion="true"] { --dur-fast: 0ms; --dur: 0ms; }

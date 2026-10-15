@@ -1,0 +1,19 @@
+.key {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 26px; height: 22px; padding: 0 6px;
+  font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.04em;
+  color: var(--black); background: var(--white);
+  border-bottom: 3px solid var(--grey);
+  transform: skewX(var(--skew));
+}
+.pad {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 13px;
+  color: var(--black); background: var(--white);
+}
+.round { width: 22px; height: 22px; border-radius: 50%; }
+.bumper { height: 20px; padding: 0 8px; border-radius: 10px 10px 4px 4px; }
+.dpad { width: 22px; height: 22px; font-size: 16px; background: transparent; color: var(--white); }
+.pad_A { background: var(--white); }
+.pad_B { background: var(--red); color: var(--white); }
+.pad_Y { background: var(--gold); }

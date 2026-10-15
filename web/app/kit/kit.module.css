@@ -1,0 +1,11 @@
+.section { padding-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+.h { font-size: 18px; letter-spacing: 0.2em; color: var(--grey); margin-top: 10px; }
+.row { display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
+.glyphCell { display: inline-flex; gap: 8px; align-items: center; font-family: var(--font-display); text-transform: uppercase; color: var(--grey); }
+.iconCell { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; width: 72px; color: var(--white); }
+.iconCell small { color: var(--grey); font-size: 11px; }
+.tiles { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; }
+.tiles > :first-child { grid-row: span 2; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.loading { border: 1px dashed var(--panel-line); }
+@media (max-width: 800px) { .tiles { grid-template-columns: 1fr; } }

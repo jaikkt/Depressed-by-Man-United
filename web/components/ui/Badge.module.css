@@ -1,0 +1,9 @@
+.badge {
+  display: inline-flex; align-items: center; padding: 3px 10px;
+  font-family: var(--font-display); font-weight: 800; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+  transform: skewX(var(--skew));
+}
+.red { background: var(--red); color: var(--white); }
+.white { background: var(--white); color: var(--black); }
+.gold { background: var(--gold); color: var(--black); }
+.outline { border: 2px solid var(--grey); color: var(--grey); }

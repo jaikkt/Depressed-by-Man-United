@@ -1,0 +1,114 @@
+/* Chunky parallelogram button. The skew is on the outer element and undone on
+   the label so text stays upright, exactly how most console menus do it. */
+.button {
+  --edge: 6px;
+  --face: var(--red);
+  --edge-color: var(--red-deep);
+  --text: var(--white);
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+  border: 0;
+  padding: 0;
+  margin: 0 0 var(--edge) 0;
+  background: transparent;
+  cursor: pointer;
+  transform: skewX(var(--skew));
+  transition: transform var(--dur-fast) var(--ease-snap), margin var(--dur-fast) var(--ease-snap);
+}
+
+.face {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  padding: 10px 22px;
+  background: var(--face);
+  color: var(--text);
+  box-shadow: 0 var(--edge) 0 0 var(--edge-color);
+  transition: box-shadow var(--dur-fast) var(--ease-snap), transform var(--dur-fast) var(--ease-snap), background var(--dur-fast);
+}
+
+/* Diagonal highlight stripe that sweeps across on focus/hover. */
+.face::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(0);
+  opacity: 0;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.face > :global(*) { transform: skewX(calc(var(--skew) * -1)); }
+
+.lg .face { padding: 16px 32px; }
+.lg .label { font-size: 26px; }
+
+.secondary { --face: var(--panel-raised); --edge-color: #000; }
+.ghost { --face: transparent; --edge-color: transparent; --text: var(--white); }
+.ghost .face { border: 2px solid var(--grey-dark); }
+
+.active { --face: var(--white); --text: var(--black); --edge-color: var(--grey); }
+
+/* Hover / focus: grow, hard red edge "glow" (an offset outline, not a blur). */
+.button:hover:not(:disabled),
+.button:focus-visible,
+.force_hover {
+  transform: skewX(var(--skew)) scale(1.04);
+  outline: none;
+}
+.button:hover:not(:disabled) .face,
+.button:focus-visible .face,
+.force_hover .face {
+  box-shadow: 0 var(--edge) 0 0 var(--edge-color), 0 0 0 3px var(--black), 0 0 0 6px var(--red);
+}
+.secondary:hover:not(:disabled) .face,
+.secondary:focus-visible .face,
+.secondary.force_hover .face { --face: #2a2a30; }
+.button:hover:not(:disabled) .face::after,
+.button:focus-visible .face::after,
+.force_hover .face::after {
+  opacity: 1;
+  animation: sweep 600ms var(--ease-snap) 1;
+}
+
+/* Pressed: push down 2px and shrink the edge, like a physical key. */
+.button:active:not(:disabled),
+.force_pressed {
+  transform: skewX(var(--skew)) translateY(2px) scale(1.0);
+}
+.button:active:not(:disabled) .face,
+.force_pressed .face {
+  box-shadow: 0 2px 0 0 var(--edge-color);
+  transform: translateY(2px);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  --face: #26262a;
+  --edge-color: #111;
+  --text: var(--grey-dark);
+}
+
+@keyframes sweep {
+  from { left: -60%; }
+  to { left: 120%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .face::after { animation: none !important; }
+}

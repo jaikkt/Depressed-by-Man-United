@@ -1,0 +1,22 @@
+.bar {
+  display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+  border-bottom: 2px solid var(--panel-line);
+}
+.glyph { padding: 0 8px; }
+.tab {
+  position: relative;
+  background: transparent; border: 0; cursor: pointer;
+  padding: 10px 16px 12px;
+  font-family: var(--font-display); font-weight: 700; font-size: 20px;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--grey);
+  transition: color var(--dur-fast);
+}
+.tab:hover, .tab:focus-visible { color: var(--white); outline: none; }
+.tab:focus-visible span:first-child { box-shadow: 0 0 0 2px var(--white); }
+.active { color: var(--white); }
+.underline {
+  position: absolute; left: 8px; right: 8px; bottom: -2px; height: 5px;
+  background: var(--red);
+  transform: skewX(var(--skew));
+}

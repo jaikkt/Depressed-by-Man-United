@@ -1,0 +1,23 @@
+# Python
+analysis/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Raw downloads (re-creatable by the ingest scripts; can be large)
+analysis/data/raw/
+analysis/logs/
+
+# Node / Next.js
+web/node_modules/
+web/.next/
+web/out/
+web/next-env.d.ts
+*.tsbuildinfo
+
+# Local tooling / OS
+.claude/
+.DS_Store
+.env*

@@ -1,0 +1,3 @@
+.gauge { margin: 0; display: flex; flex-direction: column; align-items: center; width: 180px; }
+.value { font-family: var(--font-display); font-weight: 800; font-size: 34px; fill: var(--white); }
+.label { font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: 0.14em; color: var(--grey); text-transform: uppercase; }

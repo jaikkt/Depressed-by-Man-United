@@ -1,0 +1,34 @@
+.figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.frame {
+  position: relative; overflow: hidden; background: var(--red-deep);
+  clip-path: polygon(14% 0, 100% 0, 86% 100%, 0 100%);
+}
+.lg .frame { width: clamp(180px, 16vw, 280px); aspect-ratio: 4 / 5; }
+.sm .frame { width: 64px; aspect-ratio: 4 / 5; }
+.photo {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+  /* duotone: drop to greyscale, push contrast, then multiply over red (the .tone layer) */
+  filter: grayscale(1) contrast(1.35) brightness(1.05);
+  mix-blend-mode: normal;
+}
+.tone {
+  position: absolute; inset: 0;
+  background-color: var(--red);
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+.tone::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 12, 0.85));
+}
+.fallback {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, var(--red) 0 50%, var(--black) 50%);
+}
+.fallback span {
+  font-family: var(--font-display); font-weight: 800; color: var(--white);
+  font-size: clamp(64px, 9vw, 140px); letter-spacing: -0.04em; text-shadow: 6px 6px 0 #000;
+}
+.sm .fallback span { font-size: 22px; text-shadow: 2px 2px 0 #000; }
+.credit { font-size: 11px; color: var(--grey); max-width: 280px; }
+.credit a { text-decoration: underline; }
